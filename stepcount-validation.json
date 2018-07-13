@@ -1,0 +1,53 @@
+{
+  "@context": {
+    "sh:targetClass": {
+      "@type": "@id"
+    },
+    "sh:path": {
+      "@type": "@id"
+    },
+    "sh:dataType": {
+      "@type": "@id"
+    },
+    "sh:property": {
+      "@type": "@id"
+    },
+    "sc": "http://semantics.id/ns/semcon#",
+    "void": "http://rdfs.org/ns/void#",
+    "rdf": "http://www.w3.org/1999/02/22-rdf-syntax-ns#",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "rdfs": "http://www.w3.org/2000/01/rdf-schema#",
+    "dct": "http://purl.org/dc/terms/",
+    "sh": "http://www.w3.org/ns/shacl#"
+  },
+  "@graph": [{
+    "@id": "sc:StepCountShape",
+    "@type": "sh:NodeShape",
+    "sh:name": "Step-Count container",
+    "sh:description": "An example data container specification for step-count data",
+    "sc:example": "[\r\n    {\r\n      \"date\": \"2018-06-17\",\r\n      \"value\": \"2345\"\r\n    },\r\n    {\r\n      \"date\": \"2018-06-18\",\r\n      \"value\": \"101\"\r\n    }\r\n]",
+    "sh:closed": true,
+    "sh:property": [
+      {
+        "sh:dataType": "xsd:DateTime",
+        "sh:maxCount": 1,
+        "sh:minCount": 1,
+        "sh:path": "sc:date"
+      },
+      {
+        "sh:dataType": "xsd:Integer",
+        "sh:maxCount": 1,
+        "sh:minCount": 1,
+        "sh:minValue": 0,
+        "sh:path": "sc:value"
+      },
+      {
+        "sh:dataType": "@id",
+        "sh:maxCount": 1,
+        "sh:minCount": 1,
+        "sh:path": "rdf:type"
+      }
+    ],
+    "sh:targetClass": "sc:StepCount"
+  }]
+}
